@@ -1,5 +1,6 @@
-import { Navigate, Outlet } from "react-router-dom";
-import { useAuth } from "../hooks/useAuth";
+// src/components/PublicOnlyRoute.tsx
+import { Navigate, Outlet } from 'react-router-dom';
+import { useAuth } from '../hooks/useAuth';
 
 export function PublicOnlyRoute() {
   const { isAuthenticated, isLoading } = useAuth();
@@ -8,6 +9,7 @@ export function PublicOnlyRoute() {
     return null;
   }
 
+  // Se ja estiver autenticado, redireciona diretamente para o painel
   if (isAuthenticated) {
     return <Navigate to="/dashboard" replace />;
   }
